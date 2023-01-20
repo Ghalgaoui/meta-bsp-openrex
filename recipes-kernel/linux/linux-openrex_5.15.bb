@@ -26,4 +26,4 @@ SRCREV = "AUTOINC"
 KERNEL_SRC ?= "https://github.com/Ghalgaoui/openrex-linux-fslc-5.15.git;protocol=git"
 SRC_URI = "${KERNEL_SRC};branch=${SRCBRANCH} file://defconfig"
  
-COMPATIBLE_MACHINE = "(mx6|mx7|imx6q-openrex|imx6s-openrex|openrex-imx6quad)"
+COMPATIBLE_MACHINE:openrex-imx6quad = "(mx6|mx7|openrex-imx6quad)"
