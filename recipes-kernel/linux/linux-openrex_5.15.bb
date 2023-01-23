@@ -5,12 +5,13 @@ SUMMARY = "Linux Kernel for OpenRex board"
 DESCRIPTION = "Linux Kernel for OpenRex board. More info \
 at http://www.imx6rex.com/open-rex"
  
-require recipes-kernel/linux/linux-imx.inc
-require recipes-kernel/linux/linux-dtb.inc
- 
+require recipes-kernel/linux/linux-fslc.inc
+
+LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+
 DEPENDS += "lzop-native bc-native"
- 
-include linux-fslc.inc
  
 #PV .= "+git${SRCPV}"
 PV .= ""
@@ -23,7 +24,9 @@ LOCALVERSION = "-yocto"
 SRCREV = "AUTOINC"
 
  
-KERNEL_SRC ?= "https://github.com/Ghalgaoui/openrex-linux-fslc-5.15.git;protocol=git"
-SRC_URI = "${KERNEL_SRC};branch=${SRCBRANCH} file://defconfig"
- 
+KERNEL_SRC ?= "https://github.com/Ghalgaoui/openrex-linux-fslc-5.15.git;protocol=https"
+SRC_URI = "${KERNEL_SRC};branch=${SRCBRANCH} \
+          file://defconfig \
+          "
+
 COMPATIBLE_MACHINE:openrex-imx6quad = "(mx6|mx7|openrex-imx6quad)"
