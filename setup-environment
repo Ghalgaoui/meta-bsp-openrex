@@ -172,7 +172,8 @@ EOF
         -e "s,PACKAGE_CLASSES ?=.*,PACKAGE_CLASSES ?= '$PACKAGE_CLASSES',g" \
         -i conf/local.conf
 
-    cp $TEMPLATES/* conf/
+    cp -v $TEMPLATES/bblayers.conf conf/
+    cp -v $TEMPLATES/layer.conf conf/
 
     for s in $HOME/.oe $HOME/.yocto; do
         if [ -e $s/site.conf ]; then
